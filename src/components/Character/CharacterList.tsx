@@ -45,7 +45,7 @@ export const CharacterList: React.FC<CharacterListProps> = ({
         </Box>
       )}
       <Flex justifyContent='space-between'>
-        <Box></Box>
+        <Box width='100px'></Box>
         <Flex>
           <LinkButton width='100px' onClick={onPreviousPage}>
             &lt;&nbsp;&nbsp; Previous

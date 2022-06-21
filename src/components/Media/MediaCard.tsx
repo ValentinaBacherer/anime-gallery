@@ -8,6 +8,8 @@ interface MediaCardProps {
   media: MediaFragment
 }
 
+const MAX_LENGTH = 35
+
 export const MediaCard: React.FC<MediaCardProps> = ({ media }: MediaCardProps) => {
   const {
     type,
@@ -22,7 +24,18 @@ export const MediaCard: React.FC<MediaCardProps> = ({ media }: MediaCardProps) =
       <StyledImage height='40px' width='40px' src={'./images/anime.svg'} alt='' />
 
       <Box padding='8px'>
-        <h2>{english ?? 'Not available'}</h2>
+        {english ? (
+          <h2>
+            {english.length <= MAX_LENGTH
+              ? english
+              : `${english.substring(0, MAX_LENGTH - 3)}${
+                  english.length > MAX_LENGTH ? '...' : ''
+                }`}
+          </h2>
+        ) : (
+          <h2>Not available</h2>
+        )}
+
         <p>{`${type}, Started: ${formattedDate ? formattedDate : 'available soon...'}`}</p>
       </Box>
     </Flex>

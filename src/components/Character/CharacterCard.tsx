@@ -23,9 +23,9 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
   } = character
 
   return (
-    <StyledCard direction='column' width='220px' onClick={() => onSelect?.(id)} border={selected}>
+    <StyledCard direction='column' width='210px' onClick={() => onSelect?.(id)} border={selected}>
       <FlexCenter style={{ display: 'flex', justifyContent: 'center' }}>
-        <StyledImage height='100px' width='100px' src={medium} alt='' borderRadius='50%' />
+        <StyledImage height='95px' width='95px' src={medium} alt='' borderRadius='50%' />
       </FlexCenter>
 
       <Box>

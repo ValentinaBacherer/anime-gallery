@@ -32,11 +32,15 @@ const Home = () => {
   }
 
   return (
-    <Grid gridTemplateColumns='auto auto' gap='20px' justifyContent='start'>
+    <Grid
+      gridTemplateColumns={selectedCharacter ? 'auto auto' : 'auto'}
+      gap='20px'
+      justifyContent='start'
+    >
       <Grid gap='20px'>
         <Title>Animes</Title>
         {loading ? (
-          <Box height='640px' width='700px'>
+          <Box height='640px' width='670px'>
             <p>Loading...</p>
           </Box>
         ) : (
