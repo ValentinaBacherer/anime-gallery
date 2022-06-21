@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CharacterFragment } from '../../common/interfaces/character.interface'
+import { CharacterDetailsCard } from '../../components/Character/CharacterDetailsCard'
 import { CharacterList } from '../../components/Character/CharacterList'
 import { Box } from '../../components/styles/Box.styled'
 import { Grid } from '../../components/styles/Grid.styled'
@@ -8,7 +9,7 @@ import { useGetCharacters } from '../../hooks/characters/useGetCharacters'
 
 const Home = () => {
   const [selectedCharacter, setSelectedCharacter] = useState<undefined | CharacterFragment>()
-  const [currentPage, setCurrentPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
   const pageSize = selectedCharacter ? 9 : 12
   const { data, loading } = useGetCharacters(currentPage, pageSize)
 
@@ -16,9 +17,9 @@ const Home = () => {
     setSelectedCharacter(data?.characters.find((character) => character.id === id))
   }
 
-  //   const handleClose = () => {
-  //     setSelectedCharacter(undefined)
-  //   }
+  const handleClose = () => {
+    setSelectedCharacter(undefined)
+  }
 
   const handleNextPage = () => {
     setCurrentPage((currentPage) =>
@@ -27,7 +28,7 @@ const Home = () => {
   }
 
   const handlePreviousPage = () => {
-    setCurrentPage((currentPage) => (currentPage > 0 ? currentPage - 1 : 0))
+    setCurrentPage((currentPage) => (currentPage > 1 ? currentPage - 1 : 1))
   }
 
   return (
@@ -35,7 +36,7 @@ const Home = () => {
       <Grid gap='20px'>
         <Title>Animes</Title>
         {loading ? (
-          <Box height='640px' width='860px'>
+          <Box height='640px' width='700px'>
             <p>Loading...</p>
           </Box>
         ) : (
@@ -49,7 +50,9 @@ const Home = () => {
           />
         )}
       </Grid>
-      {selectedCharacter && <div>{JSON.stringify(selectedCharacter)}</div>}
+      {selectedCharacter && (
+        <CharacterDetailsCard character={selectedCharacter} onClose={handleClose} />
+      )}
     </Grid>
   )
 }

@@ -1,4 +1,10 @@
-export type CharacterFragment = Pick<Character, 'id' | 'name' | 'image' | 'favourites'>
+import { Media as MediaFragment, Paginated } from './media.interface'
+import { PageInfo } from './page.interface'
+
+export type CharacterFragment = Pick<
+  Character,
+  'id' | 'name' | 'image' | 'favourites' | 'description'
+>
 
 export interface Character {
   id: number
@@ -10,6 +16,7 @@ export interface Character {
   bloodtype: string
   dateOfBirth: FuzzyDate
   favourites: number
+  media: Paginated<MediaFragment>
 }
 
 interface FuzzyDate {
@@ -31,9 +38,6 @@ interface CharacterName {
 }
 
 export interface PaginatedCharacters<T> {
-  pageInfo: {
-    total: number
-    hasNextPage: boolean
-  }
+  pageInfo: PageInfo
   characters: T[]
 }

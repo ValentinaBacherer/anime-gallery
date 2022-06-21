@@ -14,6 +14,7 @@ const GET_CHARACTERS = gql`
           medium
         }
         favourites
+        description
       }
       pageInfo {
         total

@@ -10,4 +10,5 @@ export const StyledImage = styled.img<Props>`
   height: ${({ height }) => height};
   width: ${({ width }) => width};
   border-radius: ${({ borderRadius }) => borderRadius};
+  object-fit: cover;
 `
