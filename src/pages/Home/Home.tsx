@@ -13,8 +13,14 @@ const Home = () => {
   const pageSize = selectedCharacter ? 9 : 12
   const { data, loading } = useGetCharacters(currentPage, pageSize)
 
-  const handleSelect = (id: number) => {
+  const handleSelect = (currentIndex: number) => (id: number) => {
+    const newCurrentPage =
+      pageSize === 12
+        ? Math.ceil(((currentPage > 1 ? currentPage - 1 : 0) * pageSize + (currentIndex + 1)) / 9)
+        : currentPage
+
     setSelectedCharacter(data?.characters.find((character) => character.id === id))
+    setCurrentPage(newCurrentPage)
   }
 
   const handleClose = () => {
@@ -36,6 +42,7 @@ const Home = () => {
       gridTemplateColumns={selectedCharacter ? 'auto auto' : 'auto'}
       gap='20px'
       justifyContent='start'
+      gridAutoFlow='column'
     >
       <Grid gap='20px'>
         <Title>Animes</Title>

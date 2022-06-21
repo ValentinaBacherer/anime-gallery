@@ -5,6 +5,7 @@ interface GridProps {
   maxHeight?: string
   gridTemplateColumns?: string
   gridTemplateRows?: string
+  gridAutoFlow?: 'column'
   justifyContent?: 'center' | 'start' | 'end' | 'space-between' | 'space-evenly' | 'space-around'
 }
 
@@ -14,5 +15,6 @@ export const Grid = styled.div<GridProps>`
   grid-template-columns: ${({ gridTemplateColumns }) => gridTemplateColumns};
   grid-template-rows: ${({ gridTemplateRows }) => gridTemplateRows};
   gap: ${({ gap }) => gap};
+  grid-auto-flow: ${({ gridAutoFlow }) => gridAutoFlow};
   justify-content: ${({ justifyContent }) => justifyContent};
 `

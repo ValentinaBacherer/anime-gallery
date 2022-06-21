@@ -7,7 +7,7 @@ import { CharacterCard } from './CharacterCard'
 
 interface CharacterListProps {
   characters?: CharacterFragment[]
-  onSelect?: (id: number) => void
+  onSelect?: (currentIndex: number) => (id: number) => void
   onNextPage?: () => void
   onPreviousPage?: () => void
   currentPage?: number
@@ -30,11 +30,11 @@ export const CharacterList: React.FC<CharacterListProps> = ({
           gap='20px'
           justifyContent='start'
         >
-          {characters.map((character) => (
+          {characters.map((character, index) => (
             <CharacterCard
               key={character.id}
               character={character}
-              onSelect={onSelect}
+              onSelect={onSelect?.(index)}
               selected={selectedId === character.id}
             />
           ))}
@@ -55,7 +55,9 @@ export const CharacterList: React.FC<CharacterListProps> = ({
             Next&nbsp;&nbsp; &gt;
           </LinkButton>
         </Flex>
-        <LinkButton width='100px'>Page {currentPage}</LinkButton>
+        <LinkButton onClick={onNextPage} width='100px'>
+          Page {currentPage}
+        </LinkButton>
       </Flex>
     </Grid>
   )
