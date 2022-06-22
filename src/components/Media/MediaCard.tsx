@@ -20,7 +20,7 @@ export const MediaCard: React.FC<MediaCardProps> = ({ media }: MediaCardProps) =
   const formattedDate = date ? DateTime.fromJSDate(date).toLocaleString(DateTime.DATE_MED) : null
 
   return (
-    <Flex alignItems='center' data-testid='flight-card'>
+    <Flex alignItems='center' data-testid='media-card'>
       <StyledImage height='40px' width='40px' src={'./images/anime.svg'} alt='' />
 
       <Box padding='8px'>

@@ -34,7 +34,7 @@ export const Box = styled.div<BoxProps>`
   transform: ${({ transform }) => transform};
   font-size: ${({ fontSize }) => fontSize};
   outline: ${({ outline }) => (outline ? '4px solid' : '')};
-  outline-color: ${({ theme }) => theme.colors.secondary};
-  border-radius: ${({ theme }) => theme.borderRadius};
+  outline-color: ${({ theme }) => theme?.colors?.secondary};
+  border-radius: ${({ theme }) => theme?.borderRadius};
   box-shadow: ${({ shadow }) => (shadow ? '0 0 10px rgba(0, 0, 0, 0.15)' : '')};
 `
