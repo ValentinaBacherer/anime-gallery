@@ -31,5 +31,6 @@ export const useGetCharacters = (
   const { data, loading } = useQuery(GET_CHARACTERS, {
     variables: { page: page, perPage: perPage || 12 },
   })
+
   return { data: data?.Page, loading }
 }
