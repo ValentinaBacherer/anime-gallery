@@ -47,7 +47,7 @@ const Home = () => {
       <Grid gap='20px'>
         <Title>Animes</Title>
         {loading ? (
-          <Box height='640px' width='670px'>
+          <Box height='640px' width='640px'>
             <p>Loading...</p>
           </Box>
         ) : (

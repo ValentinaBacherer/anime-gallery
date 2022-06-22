@@ -3,7 +3,7 @@ import { Box } from '../styles/Box.styled'
 import { Flex } from '../styles/Flex.styled'
 import { Grid } from '../styles/Grid.styled'
 import { LinkButton } from '../styles/LinkButton.styled'
-import { CharacterCard } from './CharacterCard'
+import { CharacterVisualCard } from './CharacterVisualCard'
 
 interface CharacterListProps {
   characters?: CharacterFragment[]
@@ -31,7 +31,7 @@ export const CharacterList: React.FC<CharacterListProps> = ({
           justifyContent='start'
         >
           {characters.map((character, index) => (
-            <CharacterCard
+            <CharacterVisualCard
               key={character.id}
               character={character}
               onSelect={onSelect?.(index)}

@@ -4,6 +4,7 @@ interface Props {
   heigth?: string
   width?: string
   borderRadius?: string
+  opacity?: string
 }
 
 export const StyledImage = styled.img<Props>`
@@ -11,4 +12,5 @@ export const StyledImage = styled.img<Props>`
   width: ${({ width }) => width};
   border-radius: ${({ borderRadius }) => borderRadius};
   object-fit: cover;
+  opacity: ${({ opacity }) => opacity}; ;
 `

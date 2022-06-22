@@ -21,7 +21,7 @@ export const StyledCard = styled.div<Props>`
   align-items: stretch;
   background-color: #fff;
   border: ${({ border }) => (border ? 'solid' : '')};
-  border-radius: 16px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   padding: 15px 18px;
   width: ${({ width }) => width};

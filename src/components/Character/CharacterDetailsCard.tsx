@@ -58,7 +58,7 @@ export const CharacterDetailsCard: React.FC<CharacterDetailsProps> = ({
       maxHeight='90vh'
     >
       <Box>
-        <Flex justifyContent='space-between' alignItems='flex-start'>
+        <Flex justifyContent='space-between' alignItems='center'>
           <h1>{name.full}</h1>
           <StyledButton type='button' onClick={onClose}>
             X
