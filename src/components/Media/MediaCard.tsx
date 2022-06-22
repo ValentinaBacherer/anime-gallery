@@ -8,7 +8,7 @@ interface MediaCardProps {
   media: MediaFragment
 }
 
-const MAX_LENGTH = 35
+const MAX_LENGTH = 28
 
 export const MediaCard: React.FC<MediaCardProps> = ({ media }: MediaCardProps) => {
   const {
